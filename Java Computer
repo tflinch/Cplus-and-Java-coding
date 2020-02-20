@@ -1,0 +1,191 @@
+public class Computer
+{
+   //by default there is public access to fields and methods
+   //only methods in this class can access these fields
+	private String manufacturer;
+	private int RAMamt; // GB
+   //fields that are included in the CPU class
+	//private double CPUspeed; 
+	//private String CPUtype;
+   CPU processor;
+	private int hardDriveCapacity; //GB
+	private String motherBoardType;
+	private String chasis;
+	private boolean hasFan;
+	private boolean coolingSystem;
+	private int wattage;
+	private String operatingSystem;
+   
+   private String [] applicationPrograms;
+   private int numApps; //how many elements of the applicationPrograms array are filled in with applications
+   
+   
+   //toString method converts Computer object to a String reflecting its current state
+   //      System.out.println("first computer is a "+c1.getManufacturer()+" with speed of "+c1.getCPUspeed()+" Ghz and "+c1.getRAMamt()+" GB of RAM and a "+c1.getCPUtype()+" processor and "+c1.getHardDriveCapacity()+" GB hard drive");
+   public String toString()
+   {
+      String info;
+      
+      info = manufacturer + " OS: "+operatingSystem+ " and "+RAMamt+"  GB of RAM and a processor "+processor +
+         " and "+getHardDriveCapacity()+" GB hard drive and has the following applications installed: "+getApplicationList();
+      return info;
+   }
+
+	//no argument constructor
+   //gets called when you create a Computer object with new operator
+   public Computer()
+   {
+      //manufacturer will be null
+      RAMamt = 2;
+      processor = new CPU();
+      processor.setSpeed(3.2);
+      processor.setVendor("Intel");
+//      CPUspeed = 3.2;
+//      CPUtype ="Intel";
+      hardDriveCapacity = 500;
+      motherBoardType = "ATX";
+      chasis = "mid-tower";
+      hasFan = true;
+      coolingSystem = true;
+      wattage = 300;
+      operatingSystem = "Windows";
+      
+      //set up application program array
+      applicationPrograms = new String[48];
+   }
+   
+   //overloaded constructor that accepts three arguments
+//   Computer(int RAM, int watt, boolean fan, double processorSpeed)
+   public Computer(int RAMamt, int watt, boolean fan, double processorSpeed)
+   {
+      //call no-arg constructor
+      //can only call another constructor as first statement in another constructor of same class
+      this();
+      // Computer();
+      
+      //manufacturer will be null
+      //RAMamt = RAM;
+      this.RAMamt = RAMamt;
+//      CPUspeed = processorSpeed;
+      processor.setSpeed(processorSpeed);
+      hasFan = fan;
+      wattage = watt;
+//this is all in default constructor so we call it and the settings will all be set      
+//      CPUtype ="Intel";
+  //    hardDriveCapacity = 500;
+    //  motherBoardType = "ATX";
+      //chasis = "mid-tower";
+//      coolingSystem = true;
+//    operatingSystem = "Windows";
+
+
+   }
+   
+   //public accessor methods to access the current value of fields in the object
+   public String getManufacturer()
+   {
+      return manufacturer;
+   }
+   
+   public int getRAMamt()
+   {
+      return RAMamt;
+   }
+   
+   //accessor method for CPUspeed
+   public double getCPUspeed()
+   {
+      //return CPUspeed;
+      return processor.getSpeed();
+   }
+   
+   public boolean getHasFan()
+   {
+      return hasFan;
+   }
+   
+   public String getCPUtype()
+   {
+      return processor.getVendor(); //CPUtype;
+   }
+   
+   public int getHardDriveCapacity()
+   {
+      return hardDriveCapacity;
+   }
+   
+   //public mutator methods
+   public void setManufacturer(String m)
+   {
+      manufacturer = m;
+   }
+   
+   public void setHardDriveCapacity(int i)
+   {
+      if(i > 0)
+         hardDriveCapacity = i;
+   }
+   
+   public void setOperatingSystem(String o)
+   {
+      operatingSystem = o;
+   }
+   
+   public void addRAM(int amtToAdd)
+   {
+      if(amtToAdd > 0)
+         RAMamt += amtToAdd;
+   }
+ 
+   public void disconnectFan()
+   {
+      hasFan = false;
+   }
+   
+   //mutator method for array of application programs
+   //add an application program (install a program)
+   public void addApp(String newApp)
+   {
+      //put newApp in the array, at the next available slot      
+      applicationPrograms[numApps] = newApp;
+      //increment the number of apps installed
+      numApps++;            
+   }
+   
+   //accessor method
+   //ask for a list of applications that are installed
+   public String getApplicationList()
+   {
+      String appList= "";
+      for(int i = 0; i<numApps; i++)
+      {
+         appList += applicationPrograms[i] + " ";
+      }
+      return appList;
+   }
+   
+   
+   //count how many applications are installed
+   //accessor method
+   //no mutator method for numApps since it should correspond to the applicationPrograms array
+   public int numAppsInstalled()
+   {
+      return numApps;
+   }
+
+   //find out if a specific program is installed
+   public boolean hasApplication(String appToFind)
+   {
+      boolean found = false;
+      for(int i = 0; i<numApps; i++)
+      {
+         if(applicationPrograms[i] == appToFind)
+         {
+            found = true;
+            break;
+         }
+      }
+      return found;
+   }
+
+}
