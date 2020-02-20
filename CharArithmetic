@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+int main ()
+{
+ char choice;
+ double m, z, d;
+
+ cout << "Please choose which 2 numbers in your head. \n";
+ cout <<" To those add please enter 1. \n";
+ cout <<" To those subtract please enter 2. \n";
+ cout <<" To those divide please enter 3. \n";
+ cout <<" To those multiply please enter 4. \n";
+ cin >> choice;
+
+ switch (choice)
+ {
+  case '1':
+   cout << "You have chosen ADD, please enter your 2 numbers. ";
+   cin >> m>>z;
+  
+   d = m+z;
+   cout << "The sum of the 2 numbers are " << d <<".";
+  break;
+ 
+  case '2':
+ 	cout << "You have chosen subtract, please enter your 2 numbers. ";
+   cin >> m>> z;
+   d = m-z;
+   cout << "The 2 numbers subtract equals " << d <<".";
+  break;
+ 
+  case '3':
+   cout << "You have chosen divided, please enter your 2 numbers. ";
+   cout << "You can't divid by 0";
+   cin >> m>>z;
+   d = m / z;
+   cout << "The 2 numbers divided equal " << d <<".";
+ break;
+ 
+  case '4':
+   cout << "You have chosen mutliply, please enter your 2 numbers. ";
+   cin >> m>>z;
+   d = m * z;
+   cout << "The 2 numbers multplied are " << d <<".";
+  break;
+  default: cout<< "Invalid Number.";
+  
+ }
+
+ system("pause");
+ return 0;
+}
