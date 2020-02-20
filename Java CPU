@@ -1,0 +1,130 @@
+public class CPU
+{
+   private String vendor;
+   private String model;
+   private double speed; //Ghz
+   private double cacheLevel1;
+   private double cacheLevel2;
+   private double cacheLevel3;
+   private boolean overclocking;
+   private int wattage;
+   
+   //constructors
+   public CPU()
+   {
+      vendor = "Intel";
+      speed = 3.5;
+      overclocking = true;
+   }
+   
+   public CPU(String tVendor, String tModel, int tWattage)
+   {
+      this();
+      vendor = tVendor; 
+      model = tModel;
+      wattage = tWattage;
+   }
+   
+   
+   public CPU(String tVendor, String tModel, double tSpeed, int tWattage)
+   {
+      this(tVendor, tModel, tWattage);
+      setSpeed(tSpeed);
+   }
+   
+   //accessor methods
+   public String getVendor()
+   {
+      return vendor;
+   }
+   
+   public String getModel()
+   {
+      return model;
+   }
+   
+   public double getSpeed()
+   {
+      return speed;
+   }
+   
+   public double getCacheLevel1()
+   {
+      return cacheLevel1;
+   }
+   
+   public double getCacheLevel2()
+   {
+      return cacheLevel2;
+   }
+   
+   public double getCacheLevel3()
+   {
+      return cacheLevel3;
+   }
+   
+   public boolean getOverclocking()
+   {
+      return overclocking;
+   }
+   
+   public int getWattage()
+   {
+      return wattage;
+   }
+   //mutator methods
+   /*
+
+
+   private boolean overclocking;
+   private int wattage;
+   */
+   public void setVendor(String v)
+   {
+      vendor = v;
+   }
+   
+   public void setModel(String m)
+   {
+      model = m;
+   }
+   
+   public void setSpeed(double s)
+   {
+      if(s > 0)
+         speed = s;
+   }
+   
+   public void setCacheLevel1(double c)
+   {
+      cacheLevel1 = c;      
+   }
+   
+   public void setCacheLevel2(double c)
+   {
+      cacheLevel2 = c;      
+   }
+   
+   public void setCacheLevel3(double c)
+   {
+      cacheLevel3 = c;      
+   }   
+   
+   public void setOverclocking(boolean o)
+   {
+      overclocking = o;
+   }
+   
+   public void setWattage(int w)
+   {
+      wattage = w;
+   }
+   
+   //toString method
+   public String toString()
+   {
+      return "Vendor "+vendor+" Model "+model+ " Speed "+speed+" Ghz Cache Level 1 "
+         +cacheLevel1 +" Cache Level 2 "+cacheLevel2+" Cache Level 3 "+cacheLevel3+" Wattage "
+         +wattage + (overclocking? " has overclocking" : " no overclocking");
+   }
+}
