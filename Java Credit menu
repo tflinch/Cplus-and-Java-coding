@@ -1,0 +1,103 @@
+import java.util.Scanner;
+
+public class Credit Card
+{
+   public static void main(String [] args)
+   {
+   String name;
+   double cardNumber;
+   int menu;
+   int selection;
+   int increase;
+   double purchase;
+   
+   do{
+   Scanner x = new Scanner(System.in);
+   Scanner y = new Scanner(System.in);
+   Scanner z = new Scanner(System.in);
+   Scanner a=  new Scanner(System.in);
+   
+   System.out.println("Hello Welcome to your Charged Card. Please enter your name and then card number.");
+   name=x.nextLine();
+   cardNumber=y.nextDouble();
+   ChargedCard myCard= new ChargedCard(name,cardNumber);
+   
+   System.out.println("Hello "+name+" Please enter the option you would like to proceed.");
+   System.out.println("1. Veiw CreditCard Information.");
+   System.out.println("2. Veiw DebitCard Information.");
+   System.out.println("3. Purchase an Item with Credit.");
+   System.out.println("4. Purchase an Item with Debit.");
+   System.out.println("5. Pay Credit bill.");
+   System.out.println("6. Pay Debit bill.");
+   System.out.println("7. Increase Credit spending limit.");
+   System.out.println("8. Make Debit Depostit.");
+   System.out.println("9. Make Debit Widthrawl.");
+   System.out.println("10. Exit.");
+   menu = z.nextInt();
+   
+      switch(menu)
+      {
+      case 1:  myCard= new CreditCard(name,cardNumber);
+             // if(myCard instanceof CreditCard)
+               System.out.println(myCard.toString());
+               break;
+      case 2:  myCard= new DebitCard(name,cardNumber);
+             // if(myCard instanceof DebitCard)
+                break;         
+      case 3:System.out.println("How much is the item you are purchasing?");
+             purchase=a.nextDouble();
+            if(myCard instanceof CreditCard)
+            ((CreditCard) myCard).purchaseBalance(purchase);
+           // ChargedCard.purchaseBalance(purchase);
+            break;
+      case 4:System.out.println("How much is the item you are purchasing?");
+             purchase=a.nextDouble();
+             if(myCard instanceof CreditCard)
+            ((CreditCard) myCard).purchaseBalance(purchase);
+            //ChargedCard.purchaseBalance(purchase);
+            break;      
+      case 5: System.out.println("Your Credit bill is now paid.");
+             if(myCard instanceof CreditCard)
+            ((CreditCard) myCard).payBill();
+           // myCard.payBill();
+            break;
+      case 6: System.out.println("Your bill is now paid.");
+             if(myCard instanceof DebitCard)
+            ((DebitCard) myCard).payFee();
+            //myCard.payBill();
+            break;      
+      case 7:CreditCard e = (CreditCard) myCard;
+             System.out.print("You may increase your current spending limit by increments of $50");
+             System.out.print("Your current spending is $"+e.getspendingLimit());
+             increase=a.nextInt();
+             if(myCard instanceof CreditCard)
+            {
+             for(int i =0;i<increase;i++)
+             ((CreditCard) myCard).increasespendingLimit();
+            } 
+             break ;
+       case 8:DebitCard d = (DebitCard) myCard;
+             System.out.print("How much Money would you like to depost into your account?");
+             System.out.print("Your current balance is $"+d.getBalance());
+             selection=a.nextInt();
+             if(myCard instanceof DebitCard)
+             ((DebitCard)myCard).makeDeposit(selection);
+             break ;
+       case 9:DebitCard d1 = (DebitCard) myCard;
+             System.out.print("How much Money would you like to depost into your account?");
+             System.out.print("Your current balance is $"+d1.getBalance());
+             selection=a.nextInt();
+             if(myCard instanceof DebitCard)
+             ((DebitCard)myCard).makeWithdrawal(selection);
+    
+             break ;
+                   
+             
+      case 10: break;
+      
+      default: break;
+      }
+   }while(menu!=10);
+
+   }
+ }
