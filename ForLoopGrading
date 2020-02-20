@@ -1,0 +1,26 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+double temp[8]={78,102.5,88,95,60,45,80,90.2};
+char correct;
+int x;
+
+do{
+   for(int m=0; m<8; m++)
+           cout<<"temp" <<m+1<< " " <<temp[m]<<endl;
+   cout<<"any incorrect?"<<endl;
+   cin>>correct;
+   while (correct == 'Y' || correct == 'Y')
+   {
+     cout<<"which grade do you want to change?"<< endl;
+     cin>>x;
+     cout<<"enter correct temp "<<endl;
+     cin>>temp[x-1];
+     }
+ }  
+system("pause");
+return 0;
+}                       
