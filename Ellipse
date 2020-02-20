@@ -1,0 +1,70 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+int main()
+{
+ double a, b, c, d, e, f;
+ double circum1, circum2, circum3;
+ const double pi = 3.1415926535897;
+ 
+ cout << "Enter the major and minor axes number of your first Ellipse" << endl;
+ cin >> a >> b;
+ 
+  cout << "Enter the major and minor axes number of your second Ellipse" << endl;
+ cin >> c >> d;
+ 
+  cout << "Enter the major and minor axes number of your third Ellipse" << endl;
+ cin >> e >> f;
+ 
+ circum1 = pi * sqrt(2.0 * (a + b));
+ circum2 = pi * sqrt(2.0 * (c + d));
+ circum3 = pi * sqrt(2.0 * (e + f));
+ 
+ cout << "The Table below will compute your circumfance of you Ellipse." <<endl;
+ 
+	//printing border
+ cout << setfill('-') << setw(1) << "+" << setw(15) << "-" << setw(1) << "+" << setw(15) << "-" << setw(1) << "+" << setw(5) << "-" << setw(1) << "+" << endl;
+ //printing student record
+ cout << setfill(' ') << setw(1) << "|" << setw(15) << left << "Major Axes" << setw(1) << "|" << setw(15) << left << "Minor Axes" << setw(1) << "|"  << setw(5) << left << "Circumference"  << endl;
+ //printing border
+ cout << setfill('-') << setw(1) << "+" << setw(15) << "-" << setw(1) << "+" << setw(15) << "-" << setw(1) << "+" << setw(5) << "-" << setw(1) << "+" << endl;
+ //printing student record
+ cout << setfill(' ') << setw(1) << "|" << setw(15) << left << a << setw(1) << "|" << setw(15) << left << b << setw(1) << "|"  << setw(5) << left << circum1 << endl;
+ //printing border
+ cout << setfill('-') << setw(1) << "+" << setw(15) << "-" << setw(1) << "+" << setw(15) << "-" << setw(1) << "+" << setw(5) << "-" << setw(1) << "+" << endl;
+ //printing student record
+ cout << setfill(' ') << setw(1) << "|" << setw(15) << left << c << setw(1) << "|" << setw(15) << left << d << setw(1) << "|"  << setw(5) << left << circum2 << endl;
+ //printing border
+ cout << setfill('-') << setw(1) << "+" << setw(15) << "-" << setw(1) << "+" << setw(15) << "-" << setw(1) << "+" << setw(5) << "-" << setw(1) << "+" << endl;
+ //printing student record
+ cout << setfill(' ') << setw(1) << "|" << setw(15) << left << e << setw(1) << "|" << setw(15) << left << f << setw(1) << "|"  << setw(5) << left << circum3 << endl;
+ //printing border
+ cout << setfill('-') << setw(1) << "+" << setw(15) << "-" << setw(1) << "+" << setw(15) << "-" << setw(1) << "+" << setw(5) << "-" << setw(1) << "+" << endl;
+ 
+ system("pause");
+ return 0;
+}
+/* OUTPUT
+Enter the major and minor axes number of your first Ellipse
+32
+54
+Enter the major and minor axes number of your second Ellipse
+32
+45
+Enter the major and minor axes number of your third Ellipse
+91
+69
+The Table below will compute your circumfance of you Ellipse.
++---------------+---------------+-----+
+|Major Axes 	|Minor Axes 	|Circumference
++---------------+---------------+-----+
+|32         	|54         	|41.2016
++---------------+---------------+-----+
+|32         	|45         	|38.9861
++---------------+---------------+-----+
+|91         	|69         	|56.1985
++---------------+---------------+-----+
+Press any key to continue . . .
+
+*/
