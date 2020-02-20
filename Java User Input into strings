@@ -1,0 +1,60 @@
+import java.util.*;
+
+public class StringScanner
+
+{
+   public static void main(String []args)
+   {
+   int x =1;
+   int z= 1;
+   int b =1;
+   int loc=0;
+   int locs=0;
+   
+   //User enters there name into a string
+   Scanner name = new Scanner(System.in);
+   System.out.println("Please enter your name");
+   String userName = name.nextLine();
+   userName= userName.toUpperCase();
+   
+   //Spells user name in forward broken order
+   for (int i =0; i<userName.length(); i++)
+   {
+   System.out.print(userName.substring(0,b));
+   System.out.println();
+   b++;
+   }
+   
+   //Spells user name in forward backward broken order
+   for (int i=0; i<userName.length(); i++)
+   {
+   loc = userName.length();
+   System.out.print(userName.substring(x,loc));
+   System.out.println();
+   x++;
+      }
+   System.out.print("******");
+   System.out.println();
+   
+   String newName="";
+   
+   //Spells user name in backward broken order
+   for (int i=userName.length()- 1; i>=0;i--)  
+   {
+   newName = newName + userName.charAt(i);
+   
+   System.out.print(newName);
+   System.out.println(); 
+   }
+   //Spells user name in backward forward broken order
+   for (int i=0; i<newName.length(); i++)
+   {
+   locs = newName.length();
+   System.out.print(newName.substring(z,locs));
+   System.out.println();
+   z++;
+      }
+
+   }
+   
+}   
