@@ -1,0 +1,110 @@
+public class ChargedCard
+{
+protected String name;
+protected int cardNumber;
+
+private double spendingLimit;
+
+//Constructor should be abstract because it dosent know which form of charge will be placed.
+public ChargedCard(String n,int y)
+
+   {
+   name =n;
+   cardNumber=y;
+   }
+   
+   public void payBill()
+   {
+   balance=0;
+   }
+   
+   //accessor
+   public String toString()
+   {
+    String information;
+   
+   information="Hello "+name+ " your credit number is: "+cardNumber+ ".";
+   
+   return information; 
+   }
+}
+
+class DebitCard extends ChargedCard
+{
+   protected double overdraftLimit;
+   protected double overdraftFee;
+   protected double feesIncured;
+   protected double balance;
+   
+   //Constructor
+   DebitCard(String n, int y)
+   {
+   super(n, y);
+   overdraftLimit =100;
+   overdraftfee =50;
+   feesIncured=0;
+    balance=0;
+   }
+   
+   //accessors
+    public double getBalance()
+   {
+   return balance;
+   } 
+   
+   public double getoverdrafeLimit()
+   {
+   return overdraftLimit;
+   }
+   
+   public String cannotCharge()
+   {
+    String info;
+    info= "Your purchase is exceeds your Balance combined with the aggreed overdraft limit.";
+    return info;
+   }
+   
+   //Mutator
+   public void makeDeposit(double i)
+   {
+   balance+=i;
+   }
+   
+   public void makeWitdrawal(double i)
+   {
+   balance-=i;
+   }
+   
+   public void penaltyFee()
+   {
+   feesIncured+=overdraftFee;
+   }
+   
+   public void payFee()
+   {
+   FeesIncured=0;
+   }
+   
+   public void increaseoverdraftLimit()
+   {
+   overdraftLmit+=100;
+   }
+   
+    public void purchaseBalance(double i)
+   {
+   if(i<balance)
+   balance-=i;
+   if(i<=balance+overdraftlimit)
+   {
+   balance-=1;
+   penaltyFee();
+   }
+   if(i>balance+overdraftlimit)
+   {
+   cannontCharge();
+   }
+   
+   }
+   
+
+}
