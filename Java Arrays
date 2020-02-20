@@ -1,0 +1,43 @@
+import java.util.*;
+
+public class javaarrays
+{
+   public static void main (String [] args)
+   {
+   int count =0;
+   int countn=0;
+   
+   int []numbers = {-3,56,73,-10,108,-19,17,89,-2,2,5 };
+   
+   for (int i= 0; i<numbers.length; i++)
+   {
+      if(numbers[i]<0)
+      {
+      count++;
+      System.out.println("Positive");
+      }
+      else
+      {
+      countn++;
+      System.out.println("Negative");
+      }
+   }   
+   
+   
+   
+     System.out.print("There are "+ count + "positive numbers");
+     System.out.println("There are "+ countn + "negative numbers");
+     
+     // set up an array of size100 and fill it with the first 100 postive numbers 1,2,3,4,5 ...., 99,100
+     int []bigArray= new int[100];
+     for(int i = 0; i<100;i++)
+      bigArray[i] = i+1;
+     
+     //display contents of array on screen
+     for(int i= 0; i<100; i++)
+      System.out.print(bigArray[i]+ " ");
+   
+   
+   
+   }
+}   
