@@ -1,0 +1,93 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+
+using namespace std;
+
+int main ()
+{
+	char choice;
+	double m, z, d , pi;
+	pi = 3.14159265359;
+	
+	
+	cout << "Please choice which 2 numbers in your head. \n";
+	cout <<" To calculate the area of a circle please enter 1. \n";
+	cout <<" to calculate the area of a rectangle pleasee enter 2. \n";
+	cout <<" To calculate the area of a triangle please enter 3. \n";
+	cout <<" To quit enter 4. \n";
+	cin >> choice;
+	
+	switch (choice)
+	{
+		case '1':
+			cout << "You have chosen area of a circle, Please enter the radius of the circle. ";
+			cin >> m ;
+			d = (pi * pow(m , 2));
+			cout << "The area of the circle is " << d <<".";
+		break;
+		
+		case '2':
+		 		cout << "You have chosen area of a rectangle, please enter your 2 numbers. ";
+			cin >> m >>z ;
+			d = m * z;
+			cout << "The area of the rectangle " << d <<".";
+		break;
+		
+		case '3':
+			cout << "You have chosen area of triangle, please enter your 2 numbers. ";
+			cin >> m >> z;
+			d = m * z * .5;
+			cout << "The area of the triangle" << d <<".";	
+		break;
+		
+		case '4':
+			cout << "Goodbye. ";
+	
+		break;
+	
+			
+	}
+	
+	system("pause");
+	return 0;
+}
+/* OUTPUT
+Please choice which 2 numbers in your head.
+ To calculate the area of a circle please enter 1.
+ to calculate the area of a rectangle pleasee enter 2.
+ To calculate the area of a triangle please enter 3.
+ To quit enter 4.
+1
+You have chosen area of a circle, Please enter the radius of the circle. 23
+The area of the circle is 1661.9.Press any key to continue . . .
+
+Please choice which 2 numbers in your head.
+ To calculate the area of a circle please enter 1.
+ to calculate the area of a rectangle pleasee enter 2.
+ To calculate the area of a triangle please enter 3.
+ To quit enter 4.
+2
+You have chosen area of a rectangle, please enter your 2 numbers. 43
+99
+The area of the rectangle 4257.Press any key to continue . . .
+
+Please choice which 2 numbers in your head.
+ To calculate the area of a circle please enter 1.
+ to calculate the area of a rectangle pleasee enter 2.
+ To calculate the area of a triangle please enter 3.
+ To quit enter 4.
+3
+You have chosen area of triangle, please enter your 2 numbers. 25
+50
+The area of the triangle625.Press any key to continue . . .
+
+Please choice which 2 numbers in your head.
+ To calculate the area of a circle please enter 1.
+ to calculate the area of a rectangle pleasee enter 2.
+ To calculate the area of a triangle please enter 3.
+ To quit enter 4.
+4
+Goodbye. Press any key to continue . . .
+
+*/
