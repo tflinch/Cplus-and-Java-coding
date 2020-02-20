@@ -1,0 +1,175 @@
+public class ChargedCard
+{
+protected String name;
+protected double cardNumber;
+
+
+//Constructor should be abstract because it dosent know which form of charge will be placed.
+public ChargedCard(String n,double y)
+
+   {
+   name =n;
+   cardNumber=y;
+   }
+   
+   //accessor
+   public String toString()
+   {
+    String information;
+   
+   information="Hello "+name+ " your credit number is: "+cardNumber+ ".";
+   
+   return information; 
+   }
+}
+
+class DebitCard extends ChargedCard
+{
+   protected double overdraftLimit;
+   protected double overdraftFee;
+   protected double feesIncured;
+   protected double balance;
+   
+   //Constructor
+   DebitCard(String n, double y)
+   {
+   super(n, y);
+   overdraftLimit =100;
+   overdraftFee =50;
+   feesIncured=0;
+    balance=0;
+   }
+   
+   //accessors
+    public double getBalance()
+   {
+   return balance;
+   } 
+   
+   public double getoverdrafeLimit()
+   {
+   return overdraftLimit;
+   }
+   
+   public String cannotCharge()
+   {
+    String info;
+    info= "Your purchase is exceeds your Balance combined with the aggreed overdraft limit.";
+    return info;
+   }
+   public String toString()
+   {
+    String information;
+   
+   information="Hello "+name+ " your credit number is: "+cardNumber+". Your current debit balance is $"+balance+". You have incured $"+feesIncured+" in fees. Your current over draft limit is $"+overdraftLimit;
+   
+   return information; 
+   }
+
+   
+   //Mutator
+   public void makeDeposit(double i)
+   {
+   balance+=i;
+   }
+   
+   public void makeWithdrawal(double i)
+   {
+   balance-=i;
+   }
+   
+   public void penaltyFee()
+   {
+   feesIncured+=overdraftFee;
+   }
+   
+   public void payFee()
+   {
+   feesIncured=0;
+   }
+   
+   public void increaseoverdraftLimit()
+   {
+   overdraftLimit+=100;
+   }
+   
+    public void purchaseBalance(double i)
+   {
+   if(i<balance)
+   balance-=i;
+   if(i<=balance+overdraftLimit)
+   {
+   balance-=1;
+   penaltyFee();
+   }
+   if(i>balance+overdraftLimit)
+   {
+   cannotCharge();
+   }
+   
+   }
+   
+}
+
+class CreditCard extends ChargedCard
+{
+
+   protected double spendingLimit;
+   protected double balance;
+
+   CreditCard(String n, double y)
+   {
+   super(n,y);
+   spendingLimit=2000;
+   balance=0;
+   }
+ 
+//Accessor   
+   public double getBalance()
+   {
+   return balance;
+   }
+   
+   public double getspendingLimit()
+   {
+   return spendingLimit;
+   }
+   
+    public String cannotCharge()
+   {
+    String info;
+    info= "Your purchase is exceeds your Balance combined with the aggreed overdraft limit.";
+    return info;
+   }
+      public String toString()
+   {
+    String information;
+   
+   information="Hello "+name+ " your credit number is: "+cardNumber+ ". Your current debit balance is $"+balance;
+   
+   return information; 
+   }
+   
+//Mutators
+   public void payBill()
+   {
+   balance=0;
+   }    
+   
+   public void purchaseBalance(double i)
+   {
+   if(i<=spendingLimit)
+   balance+=i;
+   
+   if(i>spendingLimit)
+   cannotCharge();
+   }
+   
+   public void increasespendingLimit()
+   {
+   spendingLimit+=50;
+   }
+   
+  
+
+}
